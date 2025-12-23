@@ -1,7 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
-require('dotenv').config();
+
 
 const app = express();
 
@@ -12,9 +13,9 @@ app.use(cors());
 // Database Connection
 
 
-const MONGO_URI = "mongodb+srv://zaarakhn07_db_user:7Z4RmMjsQfJCAl6C@cluster0.uryrhfq.mongodb.net/?appName=Cluster0";
 
-mongoose.connect(MONGO_URI)
+
+mongoose.connect(process.env.MONGO_URI)
     .then(() => console.log('MongoDB Connected Successfully'))
     .catch(err => console.log('MongoDB Error:', err));
 
